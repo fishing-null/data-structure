@@ -17,6 +17,10 @@ public class test {
         System.out.println(myArray.toString());
         myArray.removeAllValue(2);
         System.out.println(myArray.toString());
+        System.out.println(myArray.contains(3));
+        System.out.println(myArray.get(3));
+        System.out.println(myArray.get(1));
+        System.out.println(myArray.getbyValue(3));
     }
 
 }
