@@ -14,6 +14,62 @@ public class SingleLinkedList {
         }
         size++;
     }
+    //链表中间位置插入
+    public void addIndex(int index,int val){
+        if(index<0 || index >size){
+            System.out.println("输入错误,请重新输入");
+            return;
+        }
+        Node node = new Node(val);
+        Node prev = head;
+        if(index == 0){
+            addFirst(val);
+            return;
+        }else{
+            //找到待插入位置的前驱节点,当待插入位置是1时,前驱节点是0,就是头结点
+            for (int i = 0; i < index-1; i++) {
+                prev = prev.next;
+            }
+            node.next = prev.next;
+            prev.next = node;
+            size++;
+        }
+    }
+    public void addLast(int val){
+        addIndex(size,val);
+    }
+    //根据用户输入的index查找对应值
+    public int get(int index){
+        if(rangeCheck(index)){
+            Node node = head;
+            for (int i = 0; i < index; i++) {
+                node = node.next;
+            }
+            return node.val;
+        }else{
+            System.out.println("输入错误,请重新输入!");
+            return -1;
+        }
+    }
+    //将单链表中索引为idnex的节点值改为newVal并返回修改前的值
+    public int set(int index,int newVal){
+        if(rangeCheck(index)){
+            Node node = head;
+            for (int i = 0; i < size; i++) {
+                node = node.next;
+            }
+            int oldVal = node.val;
+            node.val = newVal;
+            return oldVal;
+        }else{
+            System.out.println("输入错误,请重新输入");
+            return -1;
+        }
+    }
+
+
+
+
     public String toString(){
         String ret = " ";
         //遍历链表，从头部遍历到尾部
@@ -25,6 +81,13 @@ public class SingleLinkedList {
         }
         ret += "NULL";
         return ret;
+    }
+    private boolean rangeCheck(int index){
+        if(index < 0 || index >=size) {
+            return false;
+        }else{
+            return true;
+        }
     }
 
 }

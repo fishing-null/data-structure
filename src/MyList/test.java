@@ -8,6 +8,9 @@ public class test {
         singleLinkedList.addFirst(5);
         singleLinkedList.addFirst(7);
         System.out.println(singleLinkedList);
+        singleLinkedList.addLast(9);
+        singleLinkedList.addIndex(2,3);
+        System.out.println(singleLinkedList);
 
     }
 }
