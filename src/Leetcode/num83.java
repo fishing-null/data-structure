@@ -1,7 +1,7 @@
 package Leetcode;
 
 public class num83 {
-    //双指针+引用
+    //双指针+引用解法
     public ListNode deleteDuplicates(ListNode head) {
         ListNode dummyHead = new ListNode(101);
         dummyHead.next = head;
