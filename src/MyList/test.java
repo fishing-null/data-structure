@@ -11,6 +11,15 @@ public class test {
         singleLinkedList.addLast(9);
         singleLinkedList.addIndex(2,3);
         System.out.println(singleLinkedList);
-
+        singleLinkedList.removeValueOnce(3);
+        System.out.println(singleLinkedList);
+        singleLinkedList.removeIndex(1);
+        System.out.println(singleLinkedList);
+        singleLinkedList.addLast(3);
+        singleLinkedList.addLast(3);
+        singleLinkedList.addLast(3);
+        System.out.println(singleLinkedList);
+        singleLinkedList.removeAllValue(3);
+        System.out.println(singleLinkedList);
     }
 }

@@ -66,7 +66,64 @@ public class SingleLinkedList {
             return -1;
         }
     }
+    //链表的删除功能
+    public void removeIndex(int index){
+        if(rangeCheck(index)){
+            if(index == 0){
+                head = head.next;
+                size--;
+            }else{
+                Node prev = head;
+                for (int i = 0; i < index-1; i++) {
+                    prev = prev.next;
+                }
+                prev.next = prev.next.next;
+                size--;
+            }
+        }else{
+            System.out.println("输入错误,请重新输入!");
+            return;
+        }
+    }
 
+
+    //删除链表中指定元素一次
+    public void removeValueOnce(int val){
+        if(head != null && head.val == val){
+            head=head.next;
+            size--;
+        }else{
+            Node prev = head;
+            while(prev.next != null){
+                if(prev.next.val == val){
+                    prev.next = prev.next.next;
+                    size--;
+                    return;
+                }else{
+                    prev = prev.next;
+                }
+            }
+        }
+    }
+    //删除链表中所有重复元素
+    public void removeAllValue(int val){
+        while(head != null && head.val == val){
+            head = head.next;
+        }
+        if(head == null){
+            return ;
+        }else{
+            Node prev = head;
+            while(prev.next != null){
+                if(prev.next.val == val){
+                    prev.next = prev.next.next;
+                    size--;
+                }else{
+                    prev=prev.next;
+                }
+            }
+        }
+    }
 
 
 
