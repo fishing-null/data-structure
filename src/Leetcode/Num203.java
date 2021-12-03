@@ -34,6 +34,7 @@ public class Num203 {
 //        }
 //        return dummyHead.next;
 //    }
+        //3.递归法
         if (head == null) {
             return null;
         }
