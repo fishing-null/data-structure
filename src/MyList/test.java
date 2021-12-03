@@ -21,5 +21,10 @@ public class test {
         System.out.println(singleLinkedList);
         singleLinkedList.removeAllValue(3);
         System.out.println(singleLinkedList);
+        SingleLinkedListWithHead singleLinkedListWithHead = new SingleLinkedListWithHead();
+        singleLinkedListWithHead.addIndex(0,1);
+        singleLinkedListWithHead.addIndex(0,2);
+        singleLinkedListWithHead.addIndex(0,3);
+        System.out.println(singleLinkedListWithHead);
     }
 }
