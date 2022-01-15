@@ -6,42 +6,43 @@ public class DoubleLinkedList {
     private Node head;
     //尾结点
     private Node tail;
-    public void addFirst(int val){
-        Node node = new Node(null,val,head);
-        if(head == null){
+
+    public void addFirst(int val) {
+        Node node = new Node(null, val, head);
+        if (head == null) {
             //当前链表为空
             tail = node;
-        }else{
+        } else {
             head.prev = node;
         }
         head = node;
-        size ++;
+        size++;
     }
 
-    public void addLast(int val){
-        Node node = new Node(tail,val,null);
-        if(head == null){
+    public void addLast(int val) {
+        Node node = new Node(tail, val, null);
+        if (head == null) {
             head = node;
-        }else{
+        } else {
             tail.next = node;
         }
         tail = node;
         size++;
     }
 
-    public void addIndex(int val,int index){
-        if(index < 0 || index>size) {
+    public void addIndex(int val, int index) {
+        if (index < 0 || index > size) {
             System.out.println("add index illegal!");
             return;
-        }else if(index == 0){
+        } else if (index == 0) {
             addFirst(val);
-        }else if(index == size){
+        } else if (index == size) {
             addLast(val);
-        }else{
+        } else {
             //在中间位置插入,找到index的前驱节点
             Node prev = node(index - 1);
             //连接节点
-            Node newNode = new Node(prev,val,prev.next);
+            Node newNode = new Node(prev, val, prev.next);
             prev.next.prev = newNode;
             prev.next = newNode;
             size++;
@@ -58,125 +59,118 @@ public class DoubleLinkedList {
             }
         } else {
             ret = tail;
-            for (int i = size-1; i > index; i--) {
+            for (int i = size - 1; i > index; i--) {
                 ret = ret.prev;
             }
         }
         return ret;
     }
 
-    public String toString(){
+    public String toString() {
         String ret = "";
         Node node = head;
-        while(node != null){
-            ret += node.val +"->";
+        while (node != null) {
+            ret += node.val + "->";
             node = node.next;
         }
         ret += "NULL";
         return ret;
     }
 
-    public int get(int index){
-    if(rangeIndex(index)){
-        return node(index).val;
-    }else{
-        System.out.println("get index illegal!");
-        return -1;
-    }
+    public int get(int index) {
+        if (rangeIndex(index)) {
+            return node(index).val;
+        } else {
+            System.out.println("get index illegal!");
+            return -1;
+        }
     }
 
     private boolean rangeIndex(int index) {
-        if(index < 0 || index >= size){
+        if (index < 0 || index >= size) {
             return false;
         }
         return true;
     }
 
-    public boolean contains (int val){
-        for(Node x = head;x != null;x=x.next){
-            if(x.val == val){
+    public boolean contains(int val) {
+        for (Node x = head; x != null; x = x.next) {
+            if (x.val == val) {
                 return true;
             }
         }
         return false;
     }
 
-    public int set(int index,int newVal){
-        if(rangeIndex(index)){
+    public int set(int index, int newVal) {
+        if (rangeIndex(index)) {
             Node node = node(index);
             int oldVal = node.val;
             node.val = newVal;
             return oldVal;
-        }else{
+        } else {
             System.out.println("set index illegal");
             return -1;
         }
     }
 
-    public void removeIndex(int index){
-        if(rangeIndex(index)){
+    public void removeIndex(int index) {
+        if (rangeIndex(index)) {
             Node node = node(index);
             unlink(node);
-        }else{
+        } else {
             System.out.println("remove index illegal");
         }
     }
 
-    public void removeFirse(int index){
+    public void removeFirse(int index) {
         removeIndex(0);
     }
 
-    public void removeLast(int last){
-        removeIndex(size-1);
+    public void removeLast(int last) {
+        removeIndex(size - 1);
     }
 
-    public void removeValueOnce(int val){
-        for(Node x = head; x!=null;x=x.next){
-            if(x.val == val){
+    public void removeValueOnce(int val) {
+        for (Node x = head; x != null; x = x.next) {
+            if (x.val == val) {
                 unlink(x);
                 break;
             }
         }
     }
 
-    public void removeValueAll(int val){
-        for(Node x = head;x!=null;){
-            if(x.val==val){
+    public void removeValueAll(int val) {
+        for (Node x = head; x != null; ) {
+            if (x.val == val) {
                 Node next = x.next;
                 unlink(x);
                 x = next;
-            }else{
-                x=x.next;
+            } else {
+                x = x.next;
             }
         }
     }
 
     //在双向链表中删除指定的node节点
-    private void unlink(Node node){
+    private void unlink(Node node) {
         Node prev = node.prev;
         Node next = node.next;
         //处理前驱节点
-        if(prev == null){
-            head=head.next;
-        }else{
-            prev.next=next;
-            node.prev=null;
+        if (prev == null) {
+            head = head.next;
+        } else {
+            prev.next = next;
+            node.prev = null;
         }
-        if(next == null){
-            tail=tail.prev;
-        }else{
-            next.prev=prev;
-            node.next=null;
+        if (next == null) {
+            tail = tail.prev;
+        } else {
+            next.prev = prev;
+            node.next = null;
         }
         size--;
     }
-
-
-
-
-
-
-
 
     class Node {
         Node prev;
@@ -193,5 +187,6 @@ public class DoubleLinkedList {
             this.next = next;
         }
     }
+}
 
 
