@@ -59,10 +59,10 @@ public class LoopQueue implements Queue<Integer>{
         int lastIndex = tail == 0 ? data.length-1 : tail-1;
         for (int i = head; i < tail; i++) {
             sb.append(data[i]);
-            i = (i+1)%data.length;
             if(i != lastIndex){
                 sb.append(",");
             }
+            i = (i+1)%data.length;
         }
         sb.append("]");
         return sb.toString();
