@@ -18,7 +18,7 @@ public class LoopQueue implements Queue<Integer>{
     @Override
     public void offer(Integer val) {
         if(isFull()){
-            throw new ArrayIndexOutOfBoundsException("queue is full,can not offer new value!")
+            throw new ArrayIndexOutOfBoundsException("queue is full,can not offer new value!");
         }
         data[tail] = val;
         tail = (tail+1)%data.length;
