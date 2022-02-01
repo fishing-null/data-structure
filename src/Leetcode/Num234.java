@@ -1,15 +1,34 @@
 package Leetcode;
 
+import java.util.Stack;
+
 public class Num234 {
     public boolean isPalindrome(ListNode head){
-        ListNode middleNode = middleNode(head);
-        ListNode l2 = reverseList(middleNode);
-        while(l2 != null && head != null){
-            if(head.val != l2.val){
+        //1.找中间节点+翻转链表
+//        ListNode middleNode = middleNode(head);
+//        ListNode l2 = reverseList(middleNode);
+//        while(l2 != null && head != null){
+//            if(head.val != l2.val){
+//                return false;
+//            }
+//            l2 = l2.next;
+//            head = head.next;
+//        }
+//        return true;
+        //2.运用栈解决
+        Stack<Integer> s = new Stack<>();
+        ListNode node = new ListNode();
+        node = head;
+        while(node != null){
+            s.push(node.val);
+            node = node.next;
+        }
+        while(head != null){
+            if(s.pop() == head.val){
+                head = head.next;
+            }else{
                 return false;
             }
-            l2 = l2.next;
-            head = head.next;
         }
         return true;
     }
@@ -49,7 +68,7 @@ public class Num234 {
 //        sec.next = head;
 //        head.next = null;
 //        return newHead;
-        //3.头插法
+          //3.头插法
         if(head == null || head.next == null){
             return head;
         }
