@@ -57,8 +57,17 @@ public class MyBinTree {
         }
         // 按照后序遍历的方式访问左树
         postOrder(root.left);
-        // 按照后序便利的方式访问右树
+        // 按照后序遍历的方式访问右树
         postOrder(root.right);
         System.out.print(root.val+" ");
+    }
+    public static int getNode(TreeNode root){
+        //统计二叉树节点个数
+        //边界条件 当前节点为空
+        if(root == null){
+            return 0;
+        }
+        //当前节点不为空 则+1 遍历左子树和右子树
+        return 1+getNode(root.left)+getNode(root.right);
     }
 }
