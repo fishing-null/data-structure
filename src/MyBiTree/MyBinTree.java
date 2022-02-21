@@ -82,8 +82,19 @@ public class MyBinTree {
         //当前节点不是叶子节点 判断其左子树和右子树
         return getLeadNode(root.left)+getLeadNode(root.right);
     }
+    public static boolean contains(TreeNode root,int val){
+        //判断二叉树中是否包含某一个值
+        if(root == null){
+            return false;
+        }
+        if(root.val == val){
+            return true;
+        }
+        return contains(root.left,val)||contains(root.right,val);
+    }
     public static void main(String[] args) {
         TreeNode root = build();
         System.out.println("当前二叉树一共有:"+getNode(root)+"个节点数");
+        System.out.println("当前二叉树一共有:"+getLeadNode(root)+"个叶子节点数");
     }
 }
