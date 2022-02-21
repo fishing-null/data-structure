@@ -70,4 +70,20 @@ public class MyBinTree {
         //当前节点不为空 则+1 遍历左子树和右子树
         return 1+getNode(root.left)+getNode(root.right);
     }
+    public static int getLeadNode(TreeNode root){
+        //统计二叉树叶子节点个数
+        if(root == null){
+            return 0;
+        }
+        //判断 当前节点的左子树和右子树为空 当前节点是叶子节点
+        if(root.left == null && root.right == null){
+            return 1;
+        }
+        //当前节点不是叶子节点 判断其左子树和右子树
+        return getLeadNode(root.left)+getLeadNode(root.right);
+    }
+    public static void main(String[] args) {
+        TreeNode root = build();
+        System.out.println("当前二叉树一共有:"+getNode(root)+"个节点数");
+    }
 }
