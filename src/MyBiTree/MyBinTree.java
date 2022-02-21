@@ -92,6 +92,16 @@ public class MyBinTree {
         }
         return contains(root.left,val)||contains(root.right,val);
     }
+    public static int height(TreeNode root){
+        //判断一棵二叉树的高度
+        if(root == null){
+            return 0;
+        }
+        int leftHeight = height(root.left);
+        int rightHeight = height(root.right);
+        int max = Math.max(leftHeight,rightHeight);
+        return 1+max;
+    }
     public static void main(String[] args) {
         TreeNode root = build();
         System.out.println("当前二叉树一共有:"+getNode(root)+"个节点数");
