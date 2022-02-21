@@ -102,6 +102,19 @@ public class MyBinTree {
         int max = Math.max(leftHeight,rightHeight);
         return 1+max;
     }
+    public static int getKLevelNodes(TreeNode root,int k){
+        //求出以root为根节点的第k层根节点个数
+        if(root == null || k<=0){
+            return 0;
+        }
+        if(k == 1){
+            return 1;
+        }
+        //二叉树不为空 且k值>=2
+        //以root为根节点的第k层 == 以root.left为根节点的k-1层+以root.right为根节点的k-1层
+        return getKLevelNodes(root.left,k-1)+getKLevelNodes(root.right,k-1);
+    }
+
     public static void main(String[] args) {
         TreeNode root = build();
         System.out.println("当前二叉树一共有:"+getNode(root)+"个节点数");
