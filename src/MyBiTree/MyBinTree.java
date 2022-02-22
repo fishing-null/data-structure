@@ -1,5 +1,10 @@
 package MyBiTree;
 
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.List;
+
 public class MyBinTree {
     private static class TreeNode{
         char val;
@@ -114,7 +119,31 @@ public class MyBinTree {
         //以root为根节点的第k层 == 以root.left为根节点的k-1层+以root.right为根节点的k-1层
         return getKLevelNodes(root.left,k-1)+getKLevelNodes(root.right,k-1);
     }
-
+    public static List<List<Character>> levelOrder(TreeNode root){
+        List<List<Character>> ret = new ArrayList<>();
+        if(root == null){
+            return ret;
+        }
+        //借助队列来实现遍历过程
+        Deque<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            List<Character> curList = new ArrayList<>();
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode cur = queue.poll();
+                curList.add(cur.val);
+                if(cur.left!=null){
+                    queue.offer(cur.left);
+                }
+                if(cur.right!=null){
+                    queue.offer(cur.right);
+                }
+            }
+            ret.add(curList);
+        }
+        return ret;
+    }
     public static void main(String[] args) {
         TreeNode root = build();
         System.out.println("当前二叉树一共有:"+getNode(root)+"个节点数");
