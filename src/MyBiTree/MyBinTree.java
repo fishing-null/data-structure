@@ -70,7 +70,7 @@ public class MyBinTree {
         //当前节点不为空 则+1 遍历左子树和右子树
         return 1+getNode(root.left)+getNode(root.right);
     }
-    public static int getLeadNode(TreeNode root){
+    public static int getLeafNode(TreeNode root){
         //统计二叉树叶子节点个数
         if(root == null){
             return 0;
@@ -80,7 +80,7 @@ public class MyBinTree {
             return 1;
         }
         //当前节点不是叶子节点 判断其左子树和右子树
-        return getLeadNode(root.left)+getLeadNode(root.right);
+        return getLeafNode(root.left)+getLeafNode(root.right);
     }
     public static boolean contains(TreeNode root,int val){
         //判断二叉树中是否包含某一个值
@@ -118,6 +118,6 @@ public class MyBinTree {
     public static void main(String[] args) {
         TreeNode root = build();
         System.out.println("当前二叉树一共有:"+getNode(root)+"个节点数");
-        System.out.println("当前二叉树一共有:"+getLeadNode(root)+"个叶子节点数");
+        System.out.println("当前二叉树一共有:"+getLeafNode(root)+"个叶子节点数");
     }
 }
