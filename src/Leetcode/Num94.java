@@ -20,6 +20,7 @@ public class Num94 {
         }
         TreeNode cur = root;
         Stack<TreeNode> stack = new Stack<>();
+        //遍历左子树的左节点
         while(cur != null || !stack.isEmpty()){
             while(cur!=null){
                 stack.push(cur);
@@ -27,6 +28,7 @@ public class Num94 {
             }
             cur = stack.pop();
             ret.add(cur.val);
+            //遍历右子树
             cur = cur.right;
         }
         return ret;
