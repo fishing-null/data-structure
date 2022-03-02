@@ -1,9 +1,6 @@
 package MyBiTree;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class MyBinTree {
     private static class TreeNode{
@@ -34,37 +31,82 @@ public class MyBinTree {
     }
     //先序遍历
     public static void preOrder(TreeNode root){
-        // 边界条件
+//        // 边界条件
+//        if(root == null){
+//            return;
+//        }
+//        System.out.print(root.val+" ");
+//        // 按照先序遍历的方式访问左树
+//        preOrder(root.left);
+//        // 按照先序遍历的方式访问右树
+//        preOrder(root.right);
         if(root == null){
             return;
         }
-        System.out.print(root.val+" ");
-        // 按照先序遍历的方式访问左树
-        preOrder(root.left);
-        // 按照先序遍历的方式访问右树
-        preOrder(root.right);
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while(!stack.isEmpty()){
+            System.out.println(stack.pop());
+            if(root.right != null){
+                stack.push(root.left);
+            }
+            if(root.left != null){
+                stack.push(root.right);
+            }
+        }
     }
     //中序遍历
     public static void inOrder(TreeNode root){
-        // 边界条件
+//        // 边界条件
+//        if(root == null){
+//            return;
+//        }
+//        inOrder(root.left);
+//        System.out.print(root.val+" ");
+//        inOrder(root.right);
         if(root == null){
             return;
         }
-        inOrder(root.left);
-        System.out.print(root.val+" ");
-        inOrder(root.right);
+        TreeNode cur = root;
+        Stack<TreeNode> stack = new Stack<>();
+        while(cur != null || !stack.isEmpty()){
+            while(cur != null){
+                stack.push(cur);
+                cur = cur.left;
+            }
+            System.out.println(stack.pop());
+            cur = cur.right;
+        }
     }
     //后序遍历
     public static void postOrder(TreeNode root){
-        // 边界条件
-        if(root == null){
-            return;
+//        // 边界条件
+//        if(root == null){
+//            return;
+//        }
+//        // 按照后序遍历的方式访问左树
+//        postOrder(root.left);
+//        // 按照后序遍历的方式访问右树
+//        postOrder(root.right);
+//        System.out.print(root.val+" ");
+        Stack<TreeNode> stack1 = new Stack<>();
+        Stack<Character> stack2 = new Stack<>();
+        stack1.push(root);
+        while(!stack1.isEmpty()){
+            TreeNode cur = stack1.pop();
+            while(cur!=null){
+                stack2.push(cur.val);
+            }
+            if(cur.left != null){
+                stack1.push(cur.left);
+            }
+            if(cur.right != null){
+                stack1.push(cur.right);
+            }
         }
-        // 按照后序遍历的方式访问左树
-        postOrder(root.left);
-        // 按照后序遍历的方式访问右树
-        postOrder(root.right);
-        System.out.print(root.val+" ");
+        while(!stack2.isEmpty()){
+            System.out.println(stack2.pop());
+        }
     }
     public static int getNode(TreeNode root){
         //统计二叉树节点个数
