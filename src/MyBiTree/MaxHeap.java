@@ -5,17 +5,18 @@ import java.util.List;
 
 public class MaxHeap {
     List<Integer> data;
-    public MaxHeap(int size){
-        data = new ArrayList<>(size);
-    }
     public MaxHeap(){
         this(10);
     }
+    public MaxHeap(int size){
+        data = new ArrayList<>(size);
+    }
     public MaxHeap(int[] arr){
+        data = new ArrayList<>(arr.length);
         for(int i:arr){
             data.add(i);
         }
-        for (int i = data.size()-1; i >=0 ; i--) {
+        for (int i = parent(data.size()-1); i >=0 ; i--) {
             siftDown(i);
         }
     }
@@ -45,7 +46,7 @@ public class MaxHeap {
         while(leftChild(k)< data.size()){
             int j = leftChild(k);
             if(j+1< data.size() && data.get(j)< data.get(j+1)){
-                j=k+1;
+                j=j+1;
             }
             if(data.get(k) >= data.get(j)){
                 break;
@@ -60,9 +61,9 @@ public class MaxHeap {
         return data.toString();
     }
 
-    private void swap(int k, int parent) {
-        int temp = k;
-        k = parent;
-        parent = temp;
+    private void swap(int i, int j) {
+        int temp = data.get(i);
+        data.set(i,data.get(j));
+        data.set(j,temp);
     }
 }
