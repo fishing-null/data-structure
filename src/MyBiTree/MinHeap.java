@@ -2,6 +2,7 @@ package MyBiTree;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class MinHeap {
     private List<Integer> data;
@@ -10,6 +11,15 @@ public class MinHeap {
     }
     public MinHeap(int size){
         data = new ArrayList<>(size);
+    }
+    public MinHeap(int[] arr){
+        data = new ArrayList<>(arr.length);
+        for(int i:arr){
+            data.add(arr[i]);
+        }
+        for (int i = parent(data.size()-1); i >=0 ; i--) {
+            siftDown(i);
+        }
     }
     public boolean isEmpty(){
         return data.size() == 0;
@@ -25,7 +35,7 @@ public class MinHeap {
     }
     private void siftUp(int k){
         while(parent(k)>0 && data.get(k)<data.get(parent(k)) ){
-            swap(data.get(k),data.get(parent(k)));
+            swap(k,parent(k));
             k=parent(k);
         }
     }
@@ -43,7 +53,20 @@ public class MinHeap {
             }
         }
     }
-
+    public void add(int val){
+        data.add(val);
+        siftUp(data.size()-1);
+    }
+    public int extractMin(){
+        if(isEmpty()){
+            throw new NoSuchElementException("heap is empty!cannot extract!");
+        }
+        int min = data.get(0);
+        swap(data.size()-1,0 );
+        data.remove(data.size()-1);
+        siftDown(0);
+        return min;
+    }
     private void swap(int i, int j) {
         int temp = data.get(i);
         data.set(i,data.get(j));

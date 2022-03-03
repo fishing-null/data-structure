@@ -2,6 +2,7 @@ package MyBiTree;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class MaxHeap {
     List<Integer> data;
@@ -55,6 +56,16 @@ public class MaxHeap {
                 k=j;
             }
         }
+    }
+    public int extractMax(){
+        if(isEmpty()){
+            throw new NoSuchElementException("heap is empty!cannot extract!");
+        }
+        swap(data.size()-1,0);
+        int max = data.get(data.size()-1);
+        data.remove(data.size()-1);
+        siftDown(0);
+        return max;
     }
     @Override
     public String toString() {
