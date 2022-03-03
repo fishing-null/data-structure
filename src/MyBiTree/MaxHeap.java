@@ -11,6 +11,14 @@ public class MaxHeap {
     public MaxHeap(){
         this(10);
     }
+    public MaxHeap(int[] arr){
+        for(int i:arr){
+            data.add(i);
+        }
+        for (int i = data.size()-1; i >=0 ; i--) {
+            siftDown(i);
+        }
+    }
     public boolean isEmpty(){
         return data.size() == 0;
     }
@@ -33,6 +41,25 @@ public class MaxHeap {
             k=parent(k);
         }
     }
+    private void siftDown(int k){
+        while(leftChild(k)< data.size()){
+            int j = leftChild(k);
+            if(j+1< data.size() && data.get(j)< data.get(j+1)){
+                j=k+1;
+            }
+            if(data.get(k) >= data.get(j)){
+                break;
+            }else{
+                swap(k,j);
+                k=j;
+            }
+        }
+    }
+    @Override
+    public String toString() {
+        return data.toString();
+    }
+
     private void swap(int k, int parent) {
         int temp = k;
         k = parent;
