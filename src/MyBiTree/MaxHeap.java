@@ -67,6 +67,9 @@ public class MaxHeap {
         siftDown(0);
         return max;
     }
+    public int peekMax(){
+        return data.get(0);
+    }
     @Override
     public String toString() {
         return data.toString();

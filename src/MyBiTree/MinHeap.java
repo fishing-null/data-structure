@@ -67,7 +67,9 @@ public class MinHeap {
         siftDown(0);
         return min;
     }
-
+    public int peekMin(){
+        return data.get(0);
+    }
     @Override
     public String toString() {
         return data.toString();
