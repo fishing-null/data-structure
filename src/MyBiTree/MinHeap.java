@@ -68,6 +68,9 @@ public class MinHeap {
         return min;
     }
     public int peekMin(){
+        if(isEmpty()){
+            throw new NoSuchElementException("heap is empty!con not peek!");
+        }
         return data.get(0);
     }
     @Override

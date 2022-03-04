@@ -68,6 +68,9 @@ public class MaxHeap {
         return max;
     }
     public int peekMax(){
+        if(isEmpty()){
+            throw new NoSuchElementException("heap is empty!con not peek!");
+        }
         return data.get(0);
     }
     @Override
