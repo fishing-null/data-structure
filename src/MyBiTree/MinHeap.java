@@ -15,7 +15,7 @@ public class MinHeap {
     public MinHeap(int[] arr){
         data = new ArrayList<>(arr.length);
         for(int i:arr){
-            data.add(arr[i]);
+            data.add(i);
         }
         for (int i = parent(data.size()-1); i >=0 ; i--) {
             siftDown(i);
@@ -67,6 +67,12 @@ public class MinHeap {
         siftDown(0);
         return min;
     }
+
+    @Override
+    public String toString() {
+        return data.toString();
+    }
+
     private void swap(int i, int j) {
         int temp = data.get(i);
         data.set(i,data.get(j));
