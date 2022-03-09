@@ -10,11 +10,13 @@ public class Offer35 {
         }
         Map<Node,Node> map = new HashMap<>();
         Node cur = head;
+        //复制原链表
         while(cur != null){
             map.put(cur,new Node(cur.val));
             cur = cur.next;
         }
         cur = head;
+        //更改value的指向
         while(cur != null){
             map.get(cur).next = map.get(cur.next);
             map.get(cur).random = map.get(cur.random);
