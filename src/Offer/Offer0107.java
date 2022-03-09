@@ -1,4 +1,4 @@
-package Leetcode;
+package Offer;
 
 public class Offer0107 {
     public static void main(String[] args) {

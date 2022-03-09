@@ -1,4 +1,6 @@
-package Leetcode;
+package Offer;
+
+
 
 public class Offer22 {
     //双指针法

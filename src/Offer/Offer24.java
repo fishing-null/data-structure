@@ -1,4 +1,6 @@
-package Leetcode;
+package Offer;
+
+
 import java.util.Stack;
 
 public class Offer24 {
