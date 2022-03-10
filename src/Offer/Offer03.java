@@ -9,7 +9,7 @@ public class Offer03 {
     public int findRepeatNumber(int[] nums) {
 //        Map<Integer,Integer> map = new HashMap<>();
 //        for (int i = 0; i < nums.length; i++) {
-//            map.put(nums[i], map.getOrDefault(nums[i],1));
+//            map.put(nums[i],1+map.getOrDefault(nums[i],0));
 //        }
 //        for(int i: map.keySet()){
 //            if(map.get(i) > 1){
