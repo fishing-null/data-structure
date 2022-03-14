@@ -1,7 +1,10 @@
 package Leetcode;
 
 public class Num162 {
+<<<<<<< HEAD
     //
+=======
+>>>>>>> origin/master
     public int findPeakElement(int[] nums) {
         if(nums.length == 1){
             return 0;
