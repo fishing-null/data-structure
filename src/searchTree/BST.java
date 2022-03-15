@@ -12,17 +12,20 @@ public class BST {
     private int size;
     private TreeNode root;
     public void add(int val){
-        add(root,val);
+        root = add(root,val);
     }
+    //新添加的元素一定作为叶子节点存在
     private TreeNode add(TreeNode root,int val){
+        TreeNode node = new TreeNode(val);
         if(root == null){
-            return root;
+            size ++;
+            return node;
         }
-        if(val<root.left.val){
-            add(root.left,val);
+        if(val < root.val){
+            root.left = add(root.left,val);
         }
-        if(val>root.right.val){
-            add(root.right,val);
+        if(val > root.val){
+            root.right = add(root.right,val);
         }
         return root;
     }
