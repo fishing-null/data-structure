@@ -7,6 +7,6 @@ public class BSTTest {
         for(int i:data){
             bst.add(i);
         }
-        System.out.println();
+        System.out.println(bst.contains(15));
     }
 }

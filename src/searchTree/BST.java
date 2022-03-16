@@ -29,4 +29,22 @@ public class BST {
         }
         return root;
     }
+    public boolean contains(int val){
+        return contains(root,val);
+    }
+    private boolean contains(TreeNode root,int val){
+        if(root == null) {
+            return false;
+        }
+        if(root.val == val){
+            return true;
+        }
+        if(val<root.val){
+            return contains(root.left,val);
+        }
+        if(val> root.val){
+            return contains(root.right,val);
+        }
+        return false;
+    }
 }
