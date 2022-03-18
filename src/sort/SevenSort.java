@@ -12,6 +12,29 @@ public class SevenSort {
             swap(arr,min,i);
         }
     }
+    public static void selectionSortOP(int[] arr){
+        int low = 0;
+        int high = arr.length-1;
+        while(low <= high){
+            int min = low;
+            int max = high;
+            for (int i = low+1; i <= high; i++) {
+                if(arr[i]<arr[min]){
+                    min = i;
+                }
+                if(arr[i]>arr[max]){
+                    max = i;
+                }
+                swap(arr,low,min);
+                if(max == low){
+                    max = min;
+                }
+                swap(arr,high,max);
+                low += 1;
+                high -= 1;
+            }
+        }
+    }
     public static void bubbleSort(int[] arr){
         for (int i = 0; i < arr.length-1; i++) {
             //如果flag为true,说明此次循环没有发生交换 数组已经有序
@@ -27,7 +50,6 @@ public class SevenSort {
             }
         }
     }
-
     private static void swap(int[] arr, int j, int i) {
         int tmp = arr[j];
         arr[j] = arr[j+1];
