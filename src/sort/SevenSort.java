@@ -1,6 +1,17 @@
 package sort;
 
 public class SevenSort {
+    public static void selectionSort(int[] arr){
+        for (int i = 0; i < arr.length; i++) {
+            int min = i;
+            for (int j = i+1; j < arr.length; j++) {
+                if(arr[j]<arr[min]){
+                    min = j;
+                }
+            }
+            swap(arr,min,i);
+        }
+    }
     public static void bubbleSort(int[] arr){
         for (int i = 0; i < arr.length-1; i++) {
             //如果flag为true,说明此次循环没有发生交换 数组已经有序
