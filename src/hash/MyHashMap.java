@@ -35,6 +35,7 @@ public class MyHashMap {
     }
     public int add(int key,int val){
         int index = hash(key);
+        //key在hash表中 更换元素
         for(Node x = data[index];x != null;x = x.next){
             if(x.key == key){
                 int OldVal = x.val;
@@ -42,6 +43,7 @@ public class MyHashMap {
                 return OldVal;
             }
         }
+        //key不在hash表中 添加元素
         Node node = new Node(key,val,data[index]);
         data[index] = node;
         size++;
