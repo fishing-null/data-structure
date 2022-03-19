@@ -50,6 +50,21 @@ public class SevenSort {
             }
         }
     }
+    //直接插入排序
+    //将整个区间分为已排序区间[0,i]和无序区间[i,n]
+    //每次从无序区间中拿第一个元素插入到已排序区间的合适位置 使整个数组有序
+    public static void insertionSort(int[] arr){
+        for (int i = 1; i < arr.length; i++) {
+            //待排序区间第一个元素arr[i]
+            for (int j = i; j >0; j--) {
+                if(arr[j] > arr[j-1]){
+                    break;
+                }else{
+                    swap(arr,j,j-1);
+                }
+            }
+        }
+    }
     private static void swap(int[] arr, int j, int i) {
         int tmp = arr[j];
         arr[j] = arr[i];
