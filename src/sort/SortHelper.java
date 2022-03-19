@@ -1,7 +1,9 @@
 package sort;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
-public class SortTest {
+public class SortHelper {
     private static final ThreadLocalRandom random = ThreadLocalRandom.current();
     public static int[] generateRandomArray(int n,int left,int right){
         int[] arr = new int[n];
@@ -23,6 +25,26 @@ public class SortTest {
             arr[b] = temp;
         }
         return arr;
+    }
+    public static void testSort(String sortName,int[] arr){
+        Class<SevenSort> cls = SevenSort.class;
+        try {
+            Method method = cls.getDeclaredMethod(sortName,int[].class);
+            long start = System.nanoTime();
+            try {
+                method.invoke(null,arr);
+                Long end = System.nanoTime();
+                if(isSorted(arr)){
+                    System.out.println(sortName+"排序结束,共耗时"+(end-start)/1000000.0+"ms");
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
     }
     public static int[] arrCopy(int[] arr){
         return Arrays.copyOf(arr,arr.length);
