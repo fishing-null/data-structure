@@ -65,6 +65,26 @@ public class SevenSort {
             }
         }
     }
+    public static void insertionSortBS(int[] arr){
+        for (int i = 1; i < arr.length; i++) {
+            int val = arr[i];
+            int left = 0;
+            int right = i;
+            while(left<right){
+                int mid = (left) + ((right-left)>>1);
+                if(val<arr[mid]){
+                    right = mid;
+                }else {
+                    left = mid+1;
+                }
+            }
+            //插入完 元素右移
+            for (int j = i; j > left ; j--) {
+                arr[j] = arr[j-1];
+            }
+            arr[left] = val;
+        }
+    }
     private static void swap(int[] arr, int j, int i) {
         int tmp = arr[j];
         arr[j] = arr[i];
