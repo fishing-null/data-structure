@@ -1,4 +1,4 @@
-package Leetcode;
+package Stack.leetcode;
 
 import java.lang.reflect.Array;
 import java.util.*;
