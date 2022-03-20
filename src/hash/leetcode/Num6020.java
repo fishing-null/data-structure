@@ -1,4 +1,4 @@
-package Leetcode;
+package hash.leetcode;
 
 import java.util.*;
 
