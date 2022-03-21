@@ -35,6 +35,49 @@ public class SevenSort {
             high -= 1;
         }
     }
+    public static void mergeSort(int[] arr){
+        mergeSortInternal(arr,0,arr.length-1);
+    }
+    //在区间arr[l,r]上进行归并排序
+    private static void mergeSortInternal(int[] arr, int l, int r) {
+        if(l >= r){
+            //当前数组只有一个元素
+            return;
+        }
+        int mid = l+((r-l)>>1);
+        //将原数组拆分成左右两个区间 分别进行归并排序
+        mergeSortInternal(arr,l,mid);
+        mergeSortInternal(arr,mid+1,r);
+        merge(arr,l,mid,r);
+    }
+    //合并两个子数组为一个大的有序数组
+    private static void merge(int[] arr, int l, int mid, int r) {
+        //创建一个临时数组aux
+        int[] aux = new int[r - l + 1];
+        for (int i = 0; i < aux.length; i++) {
+            aux[i] = arr[i+l];
+        }
+        //左侧小数组的开始索引
+        int i = l;
+        //右侧小数组的开始索引
+        int j = mid+1;
+        for (int k = l; k <= r; k++) {
+            if(i > mid){
+                arr[k] = aux[j-l];
+                j++;
+            }else if(j > r){
+                arr[k] = aux[r-l];
+                i++;
+            }else if(aux[i - l]<=aux[j - l]){
+                arr[k] = aux[i-l];
+                i++;
+            }else{
+                arr[k] = aux[j-l];
+                j++;
+            }
+        }
+    }
+
     public static void bubbleSort(int[] arr){
         for (int i = 0; i < arr.length-1; i++) {
             //如果flag为true,说明此次循环没有发生交换 数组已经有序
