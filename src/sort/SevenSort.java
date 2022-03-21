@@ -40,21 +40,29 @@ public class SevenSort {
     }
     //在区间arr[l,r]上进行归并排序
     private static void mergeSortInternal(int[] arr, int l, int r) {
-        if(l >= r){
-            //当前数组只有一个元素
+        if(r - l <= 15){
+            insertionSort(arr,l,r);
             return;
         }
         int mid = l+((r-l)>>1);
         //将原数组拆分成左右两个区间 分别进行归并排序
         mergeSortInternal(arr,l,mid);
         mergeSortInternal(arr,mid+1,r);
-        merge(arr,l,mid,r);
+        if(arr[mid] > arr[mid+1]){
+            merge(arr,l,mid,r);
+        }
     }
+
+    private static void insertionSort(int[] arr, int l, int r) {
+        for (int i = l+1; i <= r; i++) {
+            for (int j = i; j > l && arr[j] < arr[j-1] ; j--) {
+                swap(arr,j,j-1);
+            }
+        }
+    }
+
     //合并两个子数组为一个大的有序数组
     private static void merge(int[] arr, int l, int mid, int r) {
-        if(arr[mid] < arr[mid+1]){
-            return;
-        }
         //创建一个临时数组aux
         int[] aux = new int[r - l + 1];
         for (int i = 0; i < aux.length; i++) {
