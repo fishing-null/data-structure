@@ -52,6 +52,9 @@ public class SevenSort {
     }
     //合并两个子数组为一个大的有序数组
     private static void merge(int[] arr, int l, int mid, int r) {
+        if(arr[mid] < arr[mid+1]){
+            return;
+        }
         //创建一个临时数组aux
         int[] aux = new int[r - l + 1];
         for (int i = 0; i < aux.length; i++) {
