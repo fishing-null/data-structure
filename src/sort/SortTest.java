@@ -10,10 +10,10 @@ public class SortTest {
         int[] arrCopy3 = SortHelper.arrCopy(arr);
         int[] arrCopy4 = SortHelper.arrCopy(arr);
         SortHelper.testSort("selectionSort",arr);
-        SortHelper.testSort("bubbleSort",arrCopy1);
         SortHelper.testSort("selectionSortOP",arrCopy2);
         SortHelper.testSort("insertionSort",arrCopy3);
         SortHelper.testSort("insertionSort",sortArr);
         SortHelper.testSort("insertionSortBS",arrCopy4);
+        SortHelper.testSort("shellSort",arrCopy1);
     }
 }
