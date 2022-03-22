@@ -90,7 +90,7 @@ public class MyHashMap {
             if(prev.next.key == key){
                 Node cur = prev.next;
                 int val = cur.val;
-                prev.next = cur.next;
+                prev.next = cur.next; 
                 cur.next = cur = null;
                 size --;
                 return val;
