@@ -35,6 +35,32 @@ public class SevenSort {
             high -= 1;
         }
     }
+    public static void heapSort(int[] arr){
+        //将整个数组调整为一个最大堆
+        for (int i = (arr.length-1-1)/2; i >= 0 ; i--) {
+            siftDown(arr,i, arr.length);
+        }
+        for (int i = arr.length-1; i > 0 ; i--) {
+            swap(arr,0,i);
+            siftDown(arr,0,i);
+        }
+    }
+
+    private static void siftDown(int[] arr, int i, int length) {
+        while (2*i+1 < length){
+            int j = (i<<1)+1;
+            if(j+1 < length && arr[j + 1]>arr[j]){
+                j = j+1;
+            }
+            if(arr[i] > arr[j]){
+                break;
+            }else{
+                swap(arr,i,j);
+                i = j;
+            }
+        }
+    }
+
     public static void mergeSort(int[] arr){
         mergeSortInternal(arr,0,arr.length-1);
     }
