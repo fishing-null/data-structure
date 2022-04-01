@@ -10,6 +10,7 @@ public class SortTest {
         int[] arrCopy3 = SortHelper.arrCopy(arr);
         int[] arrCopy4 = SortHelper.arrCopy(arr);
         int[] arrCopy5 = SortHelper.arrCopy(arr);
+        int[] arrCopy6 = SortHelper.arrCopy(arr);
         SortHelper.testSort("selectionSort",arr);
         SortHelper.testSort("insertionSort",arrCopy3);
         SortHelper.testSort("insertionSort",sortArr);
@@ -17,5 +18,6 @@ public class SortTest {
         SortHelper.testSort("shellSort",arrCopy1);
         SortHelper.testSort("mergeSort",arrCopy2);
         SortHelper.testSort("heapSort",arrCopy5);
+        SortHelper.testSort("quickSort",arrCopy6);
     }
 }
