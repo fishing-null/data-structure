@@ -192,7 +192,7 @@ public class SevenSort {
             return;
         }
         //获取分区点
-        int p = partition(arr,l,r);
+        int p = partitionOP(arr,l,r);
         //递归在左区间和右区间重复过程
         quickSortInternal(arr,l,p-1);
         quickSortInternal(arr,p+1,r);
@@ -206,6 +206,25 @@ public class SevenSort {
                 swap(arr,i,j+1);
                 j++;
             }
+        }
+        swap(arr,l,j);
+        return j;
+    }
+    private static int partitionOP(int[] arr,int l,int r){
+        int v = arr[l];
+        int i = l+1;
+        int j = r;
+        while(true){
+            while(arr[i]<=v && i<r){
+                i++;
+            }
+            while(arr[j]>v && j>l){
+                j--;
+            }
+            if(i>=j){
+                break;
+            }
+            swap(arr,i,j);
         }
         swap(arr,l,j);
         return j;
