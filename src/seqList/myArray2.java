@@ -50,10 +50,10 @@ public class myArray2 {
 
     private boolean checkPosInAdd(int pos) {
         if(pos < 0){
-            return false;
+            throw new ArrayIndexOutOfBoundsException("position is illegal");
         }
-        if(pos > usedSize){
-            return false;
+        if(pos >= usedSize){
+            throw new ArrayIndexOutOfBoundsException("position is illegal");
         }
         return true;
     }
