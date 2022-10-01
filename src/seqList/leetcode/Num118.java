@@ -5,10 +5,11 @@ import java.util.List;
 
 public class Num118 {
     public static void main(String[] args) {
-
+        List<List<Integer>> list = new ArrayList<>();
+        list = Num118.generate(7);
     }
 
-    public List<List<Integer>> generate(int numRows) {
+    public static List<List<Integer>> generate(int numRows) {
         List<Integer> row1 = new ArrayList<>();
         List<List<Integer>> ret = new ArrayList<>();
         row1.add(1);
