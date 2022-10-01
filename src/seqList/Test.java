@@ -17,6 +17,6 @@ public class Test {
         System.out.println(array2.contains(8));
         System.out.println(array2.contains(10));
         System.out.println(array2.get(6));
-        System.out.println(array2.get(10));
+        array2.display();
     }
 }
