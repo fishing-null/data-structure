@@ -134,6 +134,7 @@ public class SevenSort {
     //将整个区间分为已排序区间[0,i)和无序区间[i,n]
     //每次从无序区间中拿第一个元素插入到已排序区间的合适位置 使整个数组有序
     public static void insertionSort(int[] arr){
+        //1.
 //        for (int i = 0; i < arr.length; i++) {
 //            int j = i;
 //            while(j>0){
@@ -145,15 +146,30 @@ public class SevenSort {
 //                j--;
 //            }
 //        }
-        for (int i = 1; i < arr.length; i++) {
-            //待排序区间第一个元素arr[i]
-            for (int j = i; j >0; j--) {
-                if(arr[j] > arr[j-1]){
+        //2.
+//        for (int i = 1; i < arr.length; i++) {
+//            //待排序区间第一个元素arr[i]
+//            for (int j = i; j >0; j--) {
+//                if(arr[j] > arr[j-1]){
+//                    break;
+//                }else{
+//                    swap(arr,j,j-1);
+//                }
+//            }
+//        }
+        //3.
+        for (int i = 0; i < arr.length; i++) {
+            int j = i-1;
+            int tmp = arr[i];
+            while(j>=0){
+                if(arr[j]<=tmp){
                     break;
                 }else{
-                    swap(arr,j,j-1);
+                    arr[j+1] = arr[j];
+                    j--;
                 }
             }
+            arr[j+1] = tmp;
         }
     }
     public static void insertionSortBS(int[] arr){
@@ -176,15 +192,39 @@ public class SevenSort {
             arr[left] = val;
         }
     }
+
     public static void shellSort(int[] arr){
-        //预处理阶段
+//        //预处理阶段
+//        int gap = arr.length>>1;
+//        while(gap>1){
+//            insertionSortGap(arr,gap);
+//            gap = gap>>1;
+//        }
+//        //整个集合接近有序 对整个集合排序
+//        insertionSort(arr);
         int gap = arr.length>>1;
-        while(gap > 1){
-            insertionSortGap(arr,gap);
-            gap = gap >> 1;
+        while(gap>0) {
+            while (gap > 0) {
+                shell(arr, gap);
+                gap = gap >> 1;
+            }
         }
-        //整个集合接近有序 对整个集合排序
-        insertionSort(arr);
+    }
+
+    private static void shell(int[] arr, int gap) {
+        for (int i = gap; i < arr.length; i++) {
+            int temp = arr[i];
+            int j = i-gap;
+            while(j >= 0){
+                if(arr[j] <= temp){
+                    break;
+                }else{
+                    arr[j+gap] = arr[j];
+                    j -= gap;
+                }
+                arr[j+gap] = temp;
+            }
+        }
     }
 
     private static void insertionSortGap(int[] arr, int gap) {
