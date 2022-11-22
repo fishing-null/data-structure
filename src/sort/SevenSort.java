@@ -2,14 +2,23 @@ package sort;
 
 public class SevenSort {
     public static void selectionSort(int[] arr){
+//        for (int i = 0; i < arr.length; i++) {
+//            int min = i;
+//            for (int j = i+1; j < arr.length; j++) {
+//                if(arr[j]<arr[min]){
+//                    min = j;
+//                }
+//            }
+//            swap(arr,min,i);
+//        }
         for (int i = 0; i < arr.length; i++) {
-            int min = i;
+            int minIndex = i;
             for (int j = i+1; j < arr.length; j++) {
-                if(arr[j]<arr[min]){
-                    min = j;
+                if(arr[j] < arr[minIndex]){
+                    minIndex = j;
                 }
             }
-            swap(arr,min,i);
+            swap(arr,minIndex,i);
         }
     }
     public static void selectionSortOP(int[] arr){
