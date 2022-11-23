@@ -16,8 +16,10 @@ public class Num692 {
         for(Map.Entry<String,Integer> entry:map.entrySet()){
             rec.add(entry.getKey());
         }
+
         Collections.sort(rec, new Comparator<String>() {
             @Override
+            //如果出现频率相同 则按照字典序排序 否则降序排序
             public int compare(String o1, String o2) {
                 return o1 == o2 ? o1.compareTo(o2):map.get(o2)-map.get(o1);
             }
