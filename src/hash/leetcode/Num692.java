@@ -21,7 +21,7 @@ public class Num692 {
             @Override
             //如果出现频率相同 则按照字典序排序 否则降序排序
             public int compare(String o1, String o2) {
-                return o1 == o2 ? o1.compareTo(o2):map.get(o2)-map.get(o1);
+                return map.get(o1) == map.get(o2) ? o1.compareTo(o2):map.get(o2)-map.get(o1);
             }
         });
         return rec.subList(0,k);
