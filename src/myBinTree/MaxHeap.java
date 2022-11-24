@@ -33,12 +33,13 @@ public class MaxHeap {
     private int rightChild(int k){
         return (k<<1)+2;
     }
+    private boolean more(int i,int j){return data.get(i).compareTo(data.get(j)) >= 0;}
     public void add(int k){
         data.add(k);
         siftUp(data.size()-1);
     }
     private void siftUp(int k){
-        while(k>0 && data.get(k)>=data.get(parent(k))){
+        while(k>0 && more(k,parent(k))){
             swap(k,parent(k));
             k=parent(k);
         }
@@ -49,7 +50,7 @@ public class MaxHeap {
             if(j+1< data.size() && data.get(j)< data.get(j+1)){
                 j=j+1;
             }
-            if(data.get(k) >= data.get(j)){
+            if(more(k,j)){
                 break;
             }else{
                 swap(k,j);
