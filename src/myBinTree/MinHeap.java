@@ -33,16 +33,18 @@ public class MinHeap {
     private int rightChild(int k){
         return (k<<1)+2;
     }
+    private boolean less(int i,int j ){return data.get(i).compareTo(data.get(j))<0; }
     private void siftUp(int k){
-        while(parent(k)>0 && data.get(k)<data.get(parent(k)) ){
+        while(parent(k)>0 && less(k,parent(k)) ){
             swap(k,parent(k));
             k=parent(k);
         }
     }
     private void siftDown(int k){
+        //合法性校验
         while(leftChild(k) < data.size()){
             int j = leftChild(k);
-            if(j+1 < data.size() && data.get(j+1) < data.get(j)){
+            if(j+1 < data.size() && less(j,j+1)){
                 j = j+1;
             }
             if(data.get(j) >= data.get(k)){
