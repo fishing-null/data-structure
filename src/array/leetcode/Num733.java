@@ -4,10 +4,11 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Num733 {
-    int[] dx = {1, 0, 0, -1};
-    int[] dy = {0, 1, -1, 0};
+    static int[] dx = {1, 0, 0, -1};
+    static int[] dy = {0, 1, -1, 0};
     public static void main(String[] args) {
-
+        int[][] ret = new int[][]{{0,0,1},{1,0,0}};
+        floodFill(ret,1,0,2);
     }
     static class Position{
         int x;
@@ -23,13 +24,13 @@ public class Num733 {
             return y;
         }
     }
-    public int[][] floodFill(int[][] image, int sr, int sc, int color) {
+    public static int[][] floodFill(int[][] image, int sr, int sc, int color) {
         int ini = image[sr][sc];
         if(ini == color){
             return image;
         }
         Queue<Position> queue = new LinkedList<>();
-        Position position = new Position(sr,sc);
+        Position position = new Position(sc,sr);
         queue.offer(position);
         int n = image.length,m = image[0].length;
         image[sr][sc] = color;
@@ -38,9 +39,9 @@ public class Num733 {
             int x = tmp.getX(),y = tmp.getY();
             for (int i = 0; i < 4; i++) {
                 int mx = x+dx[i],my = y+dy[i];
-                if(mx >= 0 && mx < n && my >=0 && my < m && image[mx][my] == ini){
+                if(my >= 0 && my < n && mx >=0 && mx < m && image[my][mx] == ini){
                     queue.offer(new Position(mx,my));
-                    image[mx][my] = color;
+                    image[my][mx] = color;
                 }
             }
         }
