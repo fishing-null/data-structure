@@ -19,6 +19,7 @@ public class Num497 {
         int sumSquare = 0;
         int flag = -1;
         for (int i = 0; i < n; i++) {
+            //(x+1)*(y+1)个点
             int tmpSquare = (rect[i][2] - rect[i][0]+1)*(rect[i][3] - rect[i][1]+1);
             sumSquare += tmpSquare;
             if(random.nextInt(sumSquare) < tmpSquare){
