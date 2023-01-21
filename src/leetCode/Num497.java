@@ -14,7 +14,7 @@ public class Num497 {
          n = rects.length;
          random = new Random();
     }
-
+    //可以看作在有限个坐标集中选点的问题
     public int[] pick() {
         int sumSquare = 0;
         int flag = -1;
