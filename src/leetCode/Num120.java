@@ -1,12 +1,27 @@
 package leetCode;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Num120 {
     public static void main(String[] args) {
-
+        List<List<Integer>> list = new ArrayList<>();
+        List<Integer> lis1 = new ArrayList<>();
+        lis1.add(2);
+        list.add(lis1);
+        List<Integer> lis2 = new ArrayList<>();
+        lis2.add(3);
+        lis2.add(4);
+        list.add(lis2);
+        List<Integer> lis3 = new ArrayList<>();
+        lis3.add(6);lis3.add(5);lis3.add(7);
+        list.add(lis3);
+        List<Integer> lis4 = new ArrayList<>();
+        lis4.add(4);lis4.add(1);lis4.add(8);lis4.add(3);
+        list.add(lis4);
+        minimumTotal(list);
     }
-    public int minimumTotal(List<List<Integer>> triangle) {
+    public static int minimumTotal(List<List<Integer>> triangle) {
         int n = triangle.size();
         int[][] f = new int[n][n];
         f[0][0] = triangle.get(0).get(0);
