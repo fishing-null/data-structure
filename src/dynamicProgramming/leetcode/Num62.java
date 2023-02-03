@@ -3,7 +3,7 @@ package dynamicProgramming.leetcode;
 public class Num62 {
     public static void main(String[] args) {
         Num62 num62 = new Num62();
-        num62.uniquePaths(3,7);
+        num62.uniquePaths(7,2);
     }
     public int uniquePaths(int m, int n) {
         int[][] dp = new int[m][n];
