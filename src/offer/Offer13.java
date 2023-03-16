@@ -5,6 +5,8 @@ import java.util.Queue;
 
 public class Offer13 {
     public static void main(String[] args) {
+        Offer13 offer13 = new Offer13();
+        offer13.movingCount(6,6,2);
 
     }
     int[] dx = {0,0,-1,1};
@@ -39,7 +41,7 @@ public class Offer13 {
             int x = tmp.getX(),y = tmp.getY();
             for (int i = 0; i < 4; i++) {
                 int tx = x+dx[i], ty = y+dy[i];
-                if(tx < 0 || tx >= m || ty < 0 || ty >= n || get(tx)+get(ty) > k|| flag[tx][ty]){
+                if(tx < 0 || tx >= m || ty < 0 || ty >= n || get(tx)+get(ty) > k || flag[tx][ty]){
                     continue;
                 }
                 queue.offer(new Position(tx,ty));
