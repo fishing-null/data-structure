@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 public class Num322 {
     public static void main(String[] args) {
+        Num322 num322 = new Num322();
+        int[] coins = new int[] {1,2,5};
+        num322.coinChange(coins,11);
 
     }
     public int coinChange(int[] coins, int amount) {
