@@ -1,5 +1,7 @@
 package dynamicProgramming.leetcode;
 
+import java.util.Arrays;
+
 public class Num322 {
     public static void main(String[] args) {
 
@@ -11,10 +13,10 @@ public class Num322 {
             dp[i] = max;
         }
         dp[0] = 0;
-        for (int i = 0; i < coins.length; i++) {
-            for (int j = coins[i]; j <= amount; j++) {
-                if(dp[j - coins[i]] != max){
-                    dp[j] = Math.min(dp[j],dp[j-coins[i]] + 1);
+        for (int i = 1; i <= amount; i++){
+            for (int j = 0; j < coins.length; j++) {
+                if(i - coins[j] >= 0 && dp[i-coins[j]] != max){
+                    dp[i] = Math.min(dp[i],dp[i-coins[j]] + 1);
                 }
             }
         }
