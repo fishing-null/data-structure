@@ -18,6 +18,6 @@ public class Num405 {
                 sb.append(c);
             }
         }
-        return sb.reverse().toString();
+        return sb.toString();
     }
 }
