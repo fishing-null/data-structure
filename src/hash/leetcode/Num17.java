@@ -4,6 +4,8 @@ import java.util.*;
 
 public class Num17 {
     public static void main(String[] args) {
+        Num17 num17 = new Num17();
+        num17.letterCombinations("23");
 
     }
     public List<String> letterCombinations(String digits) {
