@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 public class Num179 {
     public static void main(String[] args) {
+        Num179 num179 = new Num179();
+        num179.largestNumber(new int[] {3,30,34,5,9});
 
     }
     public String largestNumber(int[] nums) {
