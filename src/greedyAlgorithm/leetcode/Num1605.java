@@ -1,4 +1,4 @@
-package greedyAlgorithm;
+package greedyAlgorithm.leetcode;
 
 public class Num1605 {
     public static void main(String[] args) {
@@ -28,3 +28,4 @@ public class Num1605 {
     }
 
 }
+
