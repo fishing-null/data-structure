@@ -2,6 +2,8 @@ package dynamicProgramming.leetcode;
 
 public class Num377 {
     public static void main(String[] args) {
+        Num377 num377 = new Num377();
+        num377.combinationSum4(new int[] {1,2,3},4);
 
     }
     public int combinationSum4(int[] nums, int target) {
