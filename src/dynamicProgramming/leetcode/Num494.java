@@ -3,7 +3,7 @@ package dynamicProgramming.leetcode;
 public class Num494 {
     public static void main(String[] args) {
         Num494 num494 = new Num494();
-        num494.findTargetSumWays(new int[] {1,1,1,1,1},3);
+        num494.findTargetSumWays(new int[] {100},-200);
 
     }
     public int findTargetSumWays(int[] nums, int target) {
@@ -13,7 +13,7 @@ public class Num494 {
         }
         int diff = sum - target;
         int left = (sum + target)/2;
-        if(diff < 0 || diff % 2 != 0){
+        if(diff < 0 || diff % 2 != 0 || left < 0){
             return 0;
         }
         int[] dp = new int[left + 1];
