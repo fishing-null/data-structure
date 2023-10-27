@@ -2,6 +2,8 @@ package array.leetcode;
 
 public class Num560 {
     public static void main(String[] args) {
+        Num560 num560 = new Num560();
+        num560.subarraySum(new int[] {1,1,1},2);
 
     }
     public int subarraySum(int[] nums, int k) {

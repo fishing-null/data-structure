@@ -1,2 +1,14 @@
-package api.leetcode;public class Num2678 {
+package api.leetcode;
+
+public class Num2678 {
+    public int countSeniors(String[] details) {
+        int count = 0;
+        for(String detail:details){
+            Integer age = Integer.parseInt(detail.substring(11,13));
+            if(age > 60){
+                count ++;
+            }
+        }
+        return count;
+    }
 }
