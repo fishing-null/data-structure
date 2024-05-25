@@ -1,10 +1,13 @@
 package array.leetcode;
 
+import java.util.Arrays;
+
 public class Num2903 {
     public static void main(String[] args) {
 
     }
     public int[] findIndices(int[] nums, int indexDifference, int valueDifference) {
+        //双层循环暴力解法
         //定义返回数组,默认返回值为[-1,-1]
         int[] ret = new int[2];
         ret[0] = -1;
@@ -24,6 +27,33 @@ public class Num2903 {
             }
         }
         //返回结果
+        return ret;
+    }
+    public int[] findIndices2(int[] nums, int indexDifference, int valueDifference) {
+        //一次遍历,让i直接从indexDifference开始
+
+        int minIndex = 0;
+        int maxIndex = 0;
+        //初始化返回数组
+        int[] ret = new int[2];
+        Arrays.fill(ret,-1);
+        for (int i = indexDifference; i < nums.length; i++) {
+            int j = i - indexDifference;
+            if(nums[j] < nums[minIndex]){
+                minIndex = j;
+            }
+            if(nums[i] - nums[minIndex] >= valueDifference){
+                ret[0] = i;
+                ret[1] = minIndex;
+            }
+            if(nums[j] > nums[maxIndex]){
+                maxIndex = j;
+            }
+            if(nums[maxIndex] - nums[i] >= valueDifference){
+                ret[0] = i;
+                ret[1] = maxIndex;
+            }
+        }
         return ret;
     }
 }
