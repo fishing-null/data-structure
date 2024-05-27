@@ -4,7 +4,10 @@ import java.util.Arrays;
 
 public class Num918 {
     public static void main(String[] args) {
+        Num918 num918 = new Num918();
+        num918.maxSubarraySumCircular(new int[] {-3,-2,-3});
 
+        System.out.println(num918.maxSubarraySumCircular(new int[] {-3,-2,-3}));
     }
     public int maxSubarraySumCircular(int[] nums) {
         int sum = 0;
@@ -12,8 +15,8 @@ public class Num918 {
             sum += nums[i];
         }
         int ret1 = maxSubArray(nums);
-        int ret2 = sum-minSubArray(nums);
-        return sum == ret2 ? ret1 : Math.max(ret1,ret2);
+        int ret2 = minSubArray(nums);
+        return sum == ret2 ? ret1 : Math.max(ret1,sum-ret2);
     }
     public int maxSubArray(int[] nums) {
         //初始化dp数组
@@ -41,7 +44,7 @@ public class Num918 {
         //状态转移
         for(int i = 1;i < n + 1;i++){
             dp[i] = Math.min(nums[i-1],dp[i-1] + nums[i-1]);
-            if(dp[i] > minSum) minSum = dp[i];
+            if(dp[i] < minSum) minSum = dp[i];
         }
         return minSum;
     }
