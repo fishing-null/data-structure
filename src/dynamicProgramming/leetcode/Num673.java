@@ -1,9 +1,11 @@
 package dynamicProgramming.leetcode;
 
 import java.util.Arrays;
+import java.util.Collection;
 
 public class Num673 {
     public static void main(String[] args) {
+        System.err.println("a");
 
     }
     public int findNumberOfLIS(int[] nums) {

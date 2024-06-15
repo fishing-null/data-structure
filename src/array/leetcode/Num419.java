@@ -28,13 +28,17 @@ public class Num419 {
         int ret = 0;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
+                //遍历矩阵,查找为'X'的元素
                 if(board[i][j] == 'X'){
+                    //将横排的元素清除
                     for (int k = j+1; k < n && board[i][k] == 'X'; k++) {
                         board[i][k] = '.';
                     }
-                    for (int k = i+1; k < n && board[k][j] == 'X'; k++) {
+                    //将纵列的元素清除
+                    for (int k = i+1; k < m && board[k][j] == 'X'; k++) {
                         board[k][j] = '.';
                     }
+                    //战舰数量加一
                     ret++;
                 }
             }
