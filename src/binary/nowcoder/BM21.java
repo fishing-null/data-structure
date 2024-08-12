@@ -1,4 +1,4 @@
-package binary;
+package binary.nowcoder;
 
 public class BM21 {
     public static void main(String[] args) {

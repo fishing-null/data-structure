@@ -1,4 +1,4 @@
-package binary;
+package binary.nowcoder;
 
 import java.util.Stack;
 

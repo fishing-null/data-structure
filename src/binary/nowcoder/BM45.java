@@ -1,9 +1,8 @@
-package binary;
+package binary.nowcoder;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
-import java.util.PriorityQueue;
 
 public class BM45 {
     public static void main(String[] args) {
