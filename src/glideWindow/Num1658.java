@@ -16,8 +16,8 @@ public class Num1658 {
         //转变为子数组问题,寻找一个长度最长的子数组使其等于sum,找不到则返回-1;
         int left = 0,right = 0;
         int count = 0,ret = Integer.MIN_VALUE;
-
-        if(sum == 0 ) return 1;
+        if(sum == 0) return 1;
+        if(sum < 0) return -1;
         while (right < len){
             //入窗口
             count += nums[right];
