@@ -1,4 +1,4 @@
-package glideWindow;
+package glideWindow.leetcode;
 
 public class Num1004 {
     public static void main(String[] args) {

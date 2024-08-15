@@ -1,4 +1,4 @@
-package glideWindow;
+package glideWindow.leetcode;
 
 import java.util.ArrayList;
 import java.util.HashMap;
