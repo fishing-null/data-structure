@@ -1,6 +1,6 @@
 package prefix;
 
-public class Num {
+public class Num238 {
     public static void main(String[] args) {
 
     }
